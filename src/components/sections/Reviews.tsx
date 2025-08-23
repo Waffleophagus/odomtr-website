@@ -5,6 +5,7 @@ import RatingStars from "../ui/RatingStars";
 
 const Reviews = ({ items }: ReviewsProps) => {
 	return (
+		items.length > 0 ? (
 		<div className="mb-16">
 			<motion.h2
 				initial={{ opacity: 0, y: 10 }}
@@ -47,8 +48,9 @@ const Reviews = ({ items }: ReviewsProps) => {
 						<p className="text-content/80 dark:text-content-dark/80">{review.text}</p>
 					</motion.div>
 				))}
+				</div>
 			</div>
-		</div>
+		) : null
 	);
 };
 

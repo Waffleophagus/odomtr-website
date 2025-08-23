@@ -1,18 +1,36 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import type { ScreenshotsProps } from "config";
 import { areImagesEqual } from "config";
 import DeviceToggle from "../ui/DeviceToggle";
 
 const Screenshots = ({ images }: ScreenshotsProps) => {
-	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">("iphone");
+	const availableDevices = [
+		...(images.iphone?.length ? ["iphone"] : []),
+		...(images.ipad?.length ? ["ipad"] : []),
+	] as ("iphone" | "ipad")[];
+
+	const [activeDevice, setActiveDevice] = useState<"iphone" | "ipad">(
+		availableDevices.includes("iphone") ? "iphone" : availableDevices[0] ?? "iphone",
+	);
+
+	useEffect(() => {
+		if (!availableDevices.includes(activeDevice) && availableDevices[0]) {
+			setActiveDevice(availableDevices[0]);
+		}
+	}, [availableDevices.join(','), activeDevice]);
+
 	const currentImages = images[activeDevice];
 
 	return (
 		<div className="mb-16">
 			<div className="mb-6 flex items-center justify-between">
 				<h2 className="text-2xl font-semibold text-content dark:text-content-dark">Screenshots</h2>
-				<DeviceToggle activeDevice={activeDevice} onToggle={setActiveDevice} />
+				<DeviceToggle
+					activeDevice={activeDevice}
+					onToggle={setActiveDevice}
+					availableDevices={availableDevices}
+				/>
 			</div>
 			<div
 				className={`relative overflow-hidden ${activeDevice === "iphone" ? "min-h-[400px]" : "min-h-[300px]"}`}

@@ -83,6 +83,7 @@ export interface BreadcrumbsProps {
 export interface DeviceToggleProps {
 	activeDevice: "iphone" | "ipad";
 	onToggle: (device: "iphone" | "ipad") => void;
+	availableDevices?: ("iphone" | "ipad")[];
 }
 
 export interface GithubCornerProps {

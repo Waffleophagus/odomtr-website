@@ -2,22 +2,30 @@ import { motion } from "framer-motion";
 import { memo, useCallback } from "react";
 import type { DeviceToggleProps } from "config";
 
-const DeviceToggle = ({ activeDevice, onToggle }: DeviceToggleProps) => {
+const DeviceToggle = ({ activeDevice, onToggle, availableDevices }: DeviceToggleProps) => {
 	const handleIphoneToggle = useCallback(() => onToggle("iphone"), [onToggle]);
 	const handleIpadToggle = useCallback(() => onToggle("ipad"), [onToggle]);
 
+	// Show both by default if availableDevices is not provided
+	const showIphone = !availableDevices || availableDevices.includes("iphone");
+	const showIpad = !availableDevices || availableDevices.includes("ipad");
+
 	return (
 		<div className="flex items-center justify-center gap-1.5 rounded-lg border-card bg-white/[0.03] dark:bg-bg-dark/30 p-1">
-			<DeviceButton
-				isActive={activeDevice === "iphone"}
-				onClick={handleIphoneToggle}
-				label="iPhone"
-			/>
-			<DeviceButton
-				isActive={activeDevice === "ipad"}
-				onClick={handleIpadToggle}
-				label="iPad"
-			/>
+			{showIphone && (
+				<DeviceButton
+					isActive={activeDevice === "iphone"}
+					onClick={handleIphoneToggle}
+					label="iPhone"
+				/>
+			)}
+			{showIpad && (
+				<DeviceButton
+					isActive={activeDevice === "ipad"}
+					onClick={handleIpadToggle}
+					label="iPad"
+				/>
+			)}
 		</div>
 	);
 };

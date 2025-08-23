@@ -6,7 +6,7 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => {
 	return (
 		<div className="mb-16 flex flex-col md:flex-row gap-8">
 			<div className="flex-shrink-0 md:self-center">
-				<div className="rounded-2xl border-card bg-white/[0.03] dark:bg-bg-dark/40 p-6 w-[192px] h-[192px] flex items-center justify-center">
+				<div className="rounded-2xl bg-white/[0.03] dark:bg-bg-dark/40 p-6 w-[192px] h-[192px] flex items-center justify-center">
 					{logo.type === "iframe" ? (
 						<iframe
 							src={logo.src}
@@ -17,7 +17,7 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => {
 						<img
 							src={logo.src}
 							alt="App Icon"
-							className="h-40 w-40 rounded-2xl shadow-lg object-cover"
+							className="h-40 w-40 rounded-2xl object-cover"
 						/>
 					)}
 				</div>
