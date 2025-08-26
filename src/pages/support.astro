@@ -1,0 +1,68 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Support - Odomtr" description="Get help and support for Odomtr. Contact us with questions, feedback, or bug reports.">
+	<div class="container mx-auto px-4 py-8">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-8">
+				<h1 class="text-4xl font-bold mb-4">Support & Feedback</h1>
+				<p class="text-lg text-gray-600 dark:text-gray-300">
+					Have questions, feedback, or need help? We're here to assist you.
+				</p>
+			</div>
+			
+			<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+				<div class="p-6">
+					<iframe 
+						src="https://docs.google.com/forms/d/e/1FAIpQLSenn2_tudLZLBobOW1thBYnfdzzex79nNSQgvQeyE5nbnY06w/viewform?embedded=true"
+						width="100%"
+						height="800"
+						frameborder="0"
+						marginheight="0"
+						marginwidth="0"
+						class="w-full min-h-[600px]"
+						title="Odomtr Support Form"
+					>
+						Loading…
+					</iframe>
+				</div>
+			</div>
+			
+			<div class="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+				<p>
+					Can't see the form? 
+					<a 
+						href="https://docs.google.com/forms/d/e/1FAIpQLSenn2_tudLZLBobOW1thBYnfdzzex79nNSQgvQeyE5nbnY06w/viewform?usp=header" 
+						target="_blank" 
+						rel="noopener noreferrer"
+						class="text-primary-color hover:underline"
+					>
+						Open it in a new tab
+					</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	/* Custom styles for the iframe container */
+	iframe {
+		border: none;
+		border-radius: 8px;
+	}
+	
+	/* Ensure the iframe is responsive */
+	@media (max-width: 768px) {
+		iframe {
+			height: 700px;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		iframe {
+			height: 600px;
+		}
+	}
+</style>

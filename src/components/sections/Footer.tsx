@@ -6,6 +6,9 @@ const Footer: React.FC = () => {
 	return (
 		<footer className="py-8 text-center space-y-4 border-t border-white/5 dark:border-white/6">
 			<div className="flex justify-center space-x-6 text-sm text-gray-400 dark:text-gray-300">
+				<a href="/support" className="transition-colors hover:text-black dark:hover:text-white">
+					Support
+				</a>
 				<a href="/privacy" className="transition-colors hover:text-black dark:hover:text-white">
 					Privacy Policy
 				</a>
