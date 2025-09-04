@@ -9,7 +9,7 @@ export const appInfo = {
 		src: "generated-image.png",
 	},
 	storeLinks: {
-		apple: "#",
+		apple: "https://apps.apple.com/us/app/odomtr/id6745459689",
 		google: "#",
 	} as StoreLinks,
 };
