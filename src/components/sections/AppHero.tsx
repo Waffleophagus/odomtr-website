@@ -40,8 +40,8 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => {
 					/>
 					<StoreButton
 						store="google"
-						href={storeLinks.google}
-						label="Get it on"
+						href={storeLinks.google === "#" ? "" : storeLinks.google}
+						label={storeLinks.google === "#" ? "Coming soon on" : "Get it on"}
 						storeName="Google Play"
 					/>
 				</div>
@@ -53,6 +53,29 @@ const AppHero = ({ title, description, storeLinks, logo }: AppHeroProps) => {
 const StoreButton = memo(
 	({ store, href, label, storeName }: StoreButtonProps) => {
 		const Icon = store === "apple" ? FaApple : FaGooglePlay;
+		const isDisabled = !href || href === "#" || href === "";
+
+		if (isDisabled) {
+			return (
+				<div className="group flex items-center gap-3 rounded-xl border-card bg-white/[0.04] dark:bg-bg-dark/30 px-5 py-3 opacity-50 cursor-not-allowed">
+					<div className="flex items-center justify-center w-7 h-7">
+						<Icon
+							className={`text-gray-300 dark:text-gray-300 ${
+								store === "apple" ? "w-[22px] h-[22px]" : "w-5 h-5"
+							}`}
+						/>
+					</div>
+					<span className="text-left">
+						<div className="text-[11px] font-medium text-gray-600 dark:text-gray-400">
+							{label}
+						</div>
+						<div className="text-[13px] font-semibold tracking-wide text-black/90 dark:text-white/90">
+							{storeName}
+						</div>
+					</span>
+				</div>
+			);
+		}
 
 		return (
 			<a
