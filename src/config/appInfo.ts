@@ -10,6 +10,6 @@ export const appInfo = {
 	},
 	storeLinks: {
 		apple: "https://apps.apple.com/us/app/odomtr/id6745459689",
-		google: "#",
+		google: "https://play.google.com/store/apps/details?id=com.d6software.carlog",
 	} as StoreLinks,
 };
